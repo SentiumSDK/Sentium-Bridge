@@ -4,7 +4,7 @@
 
 ## Overview
 
-Sentium Bridge Protocol (SBP) is a standalone cross-chain communication protocol that enables intent-based messaging between different blockchains. Unlike traditional packet-based protocols (like Cosmos IBC), SBP preserves semantic context and uses AI-powered routing for optimal cross-chain transactions.
+Sentium Bridge Protocol (SBP) is a standalone cross-chain communication protocol that enables intent-based messaging between different blockchains. Unlike traditional packet-based protocols , SBP preserves semantic context and uses AI-powered routing for optimal cross-chain transactions.
 
 ## Why Separate Repository?
 
@@ -32,16 +32,6 @@ sentium-bridge/
 ├── adapters/       # Chain-specific adapters (Rust + Go)
 └── relayer/        # Message relay infrastructure (Go)
 ```
-
-## Comparison: IBC vs SBP
-
-| Feature | Cosmos IBC | Sentium SBP |
-|---------|-----------|-------------|
-| Messaging | Packet-based | Intent-based |
-| Routing | Static | AI-optimized |
-| Security | Classical crypto | Quantum-resistant |
-| Context | None | Preserved |
-| Language | Go | Rust + Go + Python |
 
 ## Installation
 
