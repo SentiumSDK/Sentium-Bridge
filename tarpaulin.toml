@@ -1,0 +1,62 @@
+# Tarpaulin configuration for Sentium Bridge
+# Defines coverage measurement settings and thresholds
+
+[report]
+# Output formats
+out = ["Html", "Xml", "Lcov"]
+
+[coverage]
+# Minimum coverage threshold (80%)
+fail-under = 80.0
+
+# Exclude patterns
+exclude = [
+    "tests/*",
+    "benches/*",
+    "examples/*",
+    "*/tests.rs",
+    "*/benches.rs",
+]
+
+# Include patterns (focus on adapter code)
+include = [
+    "core/router/chain_adapter.rs",
+    "core/router/intent_translator.rs",
+    "light-clients/*",
+]
+
+[run]
+# Timeout for tests (5 minutes)
+timeout = 300
+
+# Run tests in release mode for better performance
+release = false
+
+# Follow symbolic links
+follow-exec = true
+
+# Count hits per line
+count = true
+
+[output]
+# Output directory
+dir = "target/coverage"
+
+# Generate detailed reports
+verbose = true
+
+# Per-adapter coverage tracking
+[adapters]
+# Track coverage for each adapter separately
+ethereum = { files = ["*ethereum*"] }
+polkadot = { files = ["*polkadot*"] }
+bitcoin = { files = ["*bitcoin*"] }
+cosmos = { files = ["*cosmos*"] }
+solana = { files = ["*solana*"] }
+zcash = { files = ["*zcash*"] }
+harmony = { files = ["*harmony*"] }
+dash = { files = ["*dash*"] }
+tron = { files = ["*tron*"] }
+litecoin = { files = ["*litecoin*"] }
+dogecoin = { files = ["*dogecoin*"] }
+chia = { files = ["*chia*"] }

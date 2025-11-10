@@ -1,0 +1,173 @@
+[workspace]
+
+[package]
+name = "sentium-bridge"
+version = "0.1.0"
+edition = "2021"
+authors = ["Sentium Team"]
+description = "Semantic Bridge Protocol - Intent-based cross-chain communication"
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/sentium/sentium-bridge"
+
+[dependencies]
+# Async runtime
+tokio = { version = "1.35", features = ["full"] }
+async-trait = "0.1"
+futures = "0.3"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bincode = "1.3"
+parity-scale-codec = { version = "3.6", features = ["derive"] }
+
+# Cryptography (Quantum-resistant)
+pqcrypto-dilithium = "0.5"
+pqcrypto-kyber = "0.8"
+pqcrypto-traits = "0.3"
+sha3 = "0.10"
+blake2 = "0.10"
+
+# Ethereum integration
+ethers = { version = "2.0", features = ["ws", "rustls"] }
+ethabi = "18.0"
+ethereum-types = "0.14"
+
+# Bitcoin integration
+bitcoin = { version = "0.31", features = ["serde"] }
+bitcoincore-rpc = "0.18"
+
+# Substrate/Polkadot integration
+subxt = "0.37"
+sp-core = "34.0"
+sp-runtime = "39.0"
+sp-trie = "37.0"
+
+# Cosmos integration
+cosmrs = { version = "0.16", features = ["cosmwasm", "rpc"] }
+cosmos-sdk-proto = "0.27"
+prost = "0.12"
+prost-types = "0.12"
+tonic = "0.10"
+tendermint = "0.34"
+tendermint-rpc = { version = "0.34", features = ["http-client", "websocket-client"] }
+
+# Solana integration
+solana-client = "2.0"
+solana-sdk = "2.0"
+solana-transaction-status = "2.0"
+anchor-client = "0.32"
+anchor-lang = "0.32"
+
+# Aptos integration
+# aptos-sdk = "2.0"
+# aptos-types = "2.0"
+# move-core-types = "2.0"
+
+# Sui integration
+# sui-sdk = "0.54"
+# sui-types = "0.54"
+# sui-json-rpc-types = "0.54"
+
+# TRON integration
+# tron-api = "0.1"
+# Note: TRON uses protobuf, we'll use prost for encoding
+
+# Avalanche integration (EVM-compatible)
+# Uses ethers-rs like Ethereum
+
+# XRP Ledger integration
+# xrpl = "0.1"
+# Note: Will use HTTP client for XRPL JSON-RPC
+
+# Stellar integration
+# stellar-sdk = "0.1"
+# stellar-base = "0.1"
+
+# NEAR Protocol integration
+# near-jsonrpc-client = "0.6"
+# near-primitives = "0.20"
+# near-crypto = "0.20"
+
+# Internet Computer (ICP) integration
+# ic-agent = "0.31"
+# candid = "0.10"
+
+# Litecoin integration (Bitcoin fork)
+# Uses bitcoin crate with Litecoin parameters
+scrypt = "0.11"
+
+# Monero integration
+# monero = "0.20"
+# monero-rpc = "0.1"
+
+# Zcash integration
+zcash_primitives = "0.26"
+zcash_client_backend = "0.21"
+bellman = "0.14"
+zcash_proofs = "0.26"
+orchard = "0.10"
+
+# Hedera integration
+# hedera-sdk-rust = "0.1"
+# Note: Will use HTTP client for Hedera REST API
+
+# TON integration
+# tonlib = "0.1"
+# Note: Will use HTTP client for TON API
+
+# Filecoin integration
+# filecoin-jsonrpc = "0.1"
+# forest-json-rpc = "0.1"
+
+# Dash integration (Bitcoin fork with X11 PoW)
+# Uses bitcoin crate with Dash parameters
+# X11 algorithm dependencies (sha2, sha3, blake2 already defined above)
+groestl = "0.10"
+# BLS signatures for InstantSend verification
+blst = "0.3"
+
+# Networking
+libp2p = "0.53"
+quinn = "0.10"
+reqwest = { version = "0.11", features = ["json"] }
+
+# AI/ML integration
+# tch = "0.14"
+ndarray = "0.15"
+# pyo3 = { version = "0.20", features = ["auto-initialize"] }
+
+# Storage
+rocksdb = "0.21"
+sled = "0.34"
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+# Utilities
+hex = "0.4"
+bs58 = "0.5"
+base64 = "0.21"
+bech32 = "0.9"
+url = "2.5"
+dirs = "5.0"
+
+[build-dependencies]
+prost-build = "0.12"
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+proptest = "1.4"
+tokio-test = "0.4"
+
+[[bench]]
+name = "router_benchmarks"
+harness = false
+
+# Workspace members would go here if we had separate crates
+# For now, everything is in the main crate
